@@ -7,12 +7,12 @@ if(isset($_POST["submit"]))
 	$email = $_POST["email"];
 	$message = $_POST["message"];
 	
-    $mail = "gauravkumargk9891@gmail.com";
+    $mailTo = "gauravkumargk9891@gmail.com";
     $headers = "From: ". $email;
 		$txt = "You have reaceved an email from ". $email. "\n\n". $message;
 		
-	mail($mail, $subject, $txt, $headers);
-	header("location: index.php?mailsuccess");
+	mail($mailTo, $subject, $txt, $headers);
+	$msg = "<div>Sent successful</div>"
 
 }
 

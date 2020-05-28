@@ -12,7 +12,7 @@ if(isset($_POST["submit"]))
 		$txt = "You have reaceved an email from ". $email. "\n\n". $message;
 		
 	mail($mail, $subject, $txt, $headers);
-	header("location: index.php?mailsuccess");
+	header("location: index.html?mailsuccess");
 
 }
 

@@ -1,0 +1,27 @@
+.banner {
+    background-color: $black;
+    height: 100vh;
+
+    .content {
+        max-width: 1000px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        padding: 0 15px;
+        height: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 4rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+ 
+    h2, p {
+        color: $white;
+    }
+}

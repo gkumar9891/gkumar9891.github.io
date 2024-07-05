@@ -1,6 +1,9 @@
+import ParticleWrapper from "../components/ParticleWrapper";
+
 const Home = () => {
     return (
         <>
+            <ParticleWrapper />
             <section className="section banner">
                 <div className="content">
                     <h2>Gaurav Kumar</h2>
@@ -16,6 +19,7 @@ const Home = () => {
                     </ul>
                 </div>
             </section>
+            
         </>
     )
 }

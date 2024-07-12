@@ -1,22 +1,17 @@
-import { Typography, Box, Container, Grid, Card, styled } from "@mui/material";
+import { Typography, Box, Container, Grid, Card } from "@mui/material";
 import ParticleWrapper from "../components/ParticleWrapper";
 
-const SkillItem = (props:any) => {
+const StyledSkillItem = (props:any) => {
     return (
        <>
-          <Card className="skill-item" elevation="6" align="center" sx={{paddingTop: 2}}>
+         
+          <Card className="skill-item" sx={{paddingTop: 2}}>
                <img className="mb-2" src={props.image} alt={props.desc} loading="lazy" /> 
                <Typography sx={{padding:1}}>{props.desc}</Typography>
           </Card>
        </>
     )
 }
-
-const StyledSkillItem = styled(SkillItem)(({theme}) => ({
-  textAlign: 'center',
-  padding: theme.spacing(1),
-  background: 'black'
-}))
 
 const Home = () => {
     return (
@@ -40,7 +35,7 @@ const Home = () => {
             <Box component="section" className="section skills" style={{ minHeight: '100dvh' }}>
                 <Container>
                     <Typography sx={{fontSize: {xs: 20, md: 40}}} variant="h2" textAlign='center'>Tech which I used</Typography>
-                    <Grid container justifyContent="center" columns={{ xs: 4, sm: 8, md: 10 }} sx={{marginTop: 2}} spacing={2} flexWrap>
+                    <Grid container justifyContent="center" columns={{ xs: 4, sm: 8, md: 10 }} sx={{marginTop: 2}} spacing={2}>
                         <Grid item xs={2}>
                             <StyledSkillItem image="/assets/html.jpeg" desc="HTML"></StyledSkillItem>
                         </Grid>

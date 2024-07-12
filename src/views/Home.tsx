@@ -1,10 +1,28 @@
+import { Typography, Box, Container, Grid, Card, styled } from "@mui/material";
 import ParticleWrapper from "../components/ParticleWrapper";
+
+const SkillItem = (props:any) => {
+    return (
+       <>
+          <Card className="skill-item" elevation="6" align="center" sx={{paddingTop: 2}}>
+               <img className="mb-2" src={props.image} alt={props.desc} loading="lazy" /> 
+               <Typography sx={{padding:1}}>{props.desc}</Typography>
+          </Card>
+       </>
+    )
+}
+
+const StyledSkillItem = styled(SkillItem)(({theme}) => ({
+  textAlign: 'center',
+  padding: theme.spacing(1),
+  background: 'black'
+}))
 
 const Home = () => {
     return (
         <>
-            <ParticleWrapper />
             <section className="section banner">
+                <ParticleWrapper />
                 <div className="content">
                     <h2>Gaurav Kumar</h2>
                     <p>👋 Hi there! I'm Gaurav, a dedicated frontend developer with a love for crafting engaging and user-centric web experiences. With expertise in React.js, Vue.js, JavaScript, HTML, and CSS, I bring over 4 years of hands-on experience in building responsive and dynamic web applications. </p>
@@ -19,6 +37,55 @@ const Home = () => {
                     </ul>
                 </div>
             </section>
+            <Box component="section" className="section skills" style={{ minHeight: '100dvh' }}>
+                <Container>
+                    <Typography sx={{fontSize: {xs: 20, md: 40}}} variant="h2" textAlign='center'>Tech which I used</Typography>
+                    <Grid container justifyContent="center" columns={{ xs: 4, sm: 8, md: 10 }} sx={{marginTop: 2}} spacing={2} flexWrap>
+                        <Grid item xs={2}>
+                            <StyledSkillItem image="/assets/html.jpeg" desc="HTML"></StyledSkillItem>
+                        </Grid>
+                        <Grid item xs={2}>
+                            <StyledSkillItem image="/assets/css.jpeg" desc="CSS"></StyledSkillItem>
+                        </Grid>
+                        <Grid item xs={2}>
+                            <StyledSkillItem image="/assets/js.jpeg" desc="JS"></StyledSkillItem>
+                        </Grid>
+                        <Grid item xs={2}>
+                            <StyledSkillItem image="/assets/vue.jpeg" desc="Vue.js"></StyledSkillItem>
+                        </Grid>
+                        <Grid item xs={2}>
+                            <StyledSkillItem image="/assets/react.jpeg" desc="React"></StyledSkillItem>
+                        </Grid>
+                        <Grid item xs={2}>
+                            <StyledSkillItem image="/assets/redux.jpeg" desc="Redux"></StyledSkillItem>
+                        </Grid>
+                        <Grid item xs={2}>
+                            <StyledSkillItem image="/assets/vuex.jpeg" desc="Vuex"></StyledSkillItem>
+                        </Grid>
+                        <Grid item xs={2}>
+                            <StyledSkillItem image="/assets/git.png" desc="Git"></StyledSkillItem>
+                        </Grid>
+                        <Grid item xs={2}>
+                            <StyledSkillItem image="/assets/bootstrap.jpeg" desc="Bootstrap 4/5"></StyledSkillItem>
+                        </Grid>
+                        <Grid item xs={2}>
+                            <StyledSkillItem image="/assets/sass.jpeg" desc="SASS/SCSS"></StyledSkillItem>
+                        </Grid>
+                        <Grid item xs={2}>
+                            <StyledSkillItem image="/assets/node.jpeg" desc="Node JS"></StyledSkillItem>
+                        </Grid>
+                        <Grid item xs={2}>
+                            <StyledSkillItem image="/assets/apostrophe.jpeg" desc="Apostrophe CMS"></StyledSkillItem>
+                        </Grid>
+                        <Grid item xs={2}>
+                            <StyledSkillItem image="/assets/mongo.jpeg" desc="MongoDB"></StyledSkillItem>
+                        </Grid>
+                        <Grid item xs={2}>
+                            <StyledSkillItem image="/assets/docker.jpeg" desc="Docker"></StyledSkillItem>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
             
         </>
     )

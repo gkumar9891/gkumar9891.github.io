@@ -1,0 +1,9 @@
+.skills .skill-item img {
+    max-height: 96px;
+}
+
+@include media-breakpoint-down(sm) {
+    .skills .skill-item img {
+        max-height: 50px;
+    }   
+}

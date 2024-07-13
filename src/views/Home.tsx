@@ -1,19 +1,45 @@
 import { Typography, Box, Container, Grid, Card } from "@mui/material";
 import ParticleWrapper from "../components/ParticleWrapper";
+import { motion, Variants } from "framer-motion";
+import { useEffect, useState } from "react";
 
-const StyledSkillItem = (props:any) => {
+const StyledSkillItem = (props: any) => {
     return (
-       <>
-         
-          <Card className="skill-item" sx={{paddingTop: 2}}>
-               <img className="mb-2" src={props.image} alt={props.desc} loading="lazy" /> 
-               <Typography sx={{padding:1}}>{props.desc}</Typography>
-          </Card>
-       </>
+        <>
+            <Card className="skill-item" sx={{ paddingTop: 2 }}>
+                <img className="mb-2" src={props.image} alt={props.desc} loading="lazy" />
+                <Typography sx={{ padding: 1 }}>{props.desc}</Typography>
+            </Card>
+        </>
     )
 }
 
+const cardVariants: Variants = {
+    offscreen: {
+        y: 300
+    },
+    onscreen: {
+        y: 50,
+        rotate: -10,
+        transition: {
+            type: "spring",
+            bounce: 0.4,
+            duration: 0.8
+        }
+    }
+};
+
 const Home = () => {
+    const [skills, setSkills]:[any, any] = useState([]);
+
+    useEffect(() => {
+        fetch("../data/skills.json")
+            .then(async (skill:any) => {
+                skill = await skill.json();
+                setSkills(skill)
+            });
+    }, [])
+
     return (
         <>
             <section className="section banner">
@@ -34,54 +60,25 @@ const Home = () => {
             </section>
             <Box component="section" className="section skills" style={{ minHeight: '100dvh' }}>
                 <Container>
-                    <Typography sx={{fontSize: {xs: 20, md: 40}}} variant="h2" textAlign='center'>Tech which I used</Typography>
-                    <Grid container justifyContent="center" columns={{ xs: 4, sm: 8, md: 10 }} sx={{marginTop: 2}} spacing={2}>
+                    <Typography sx={{ fontSize: { xs: 20, md: 40 } }} variant="h2" textAlign='center'>Tech which I used</Typography>
+                    <Grid container justifyContent="center" columns={{ xs: 4, sm: 8, md: 10 }} sx={{ marginTop: 2 }} spacing={2}>
+                        {skills.map((skill:any) =>
                         <Grid item xs={2}>
-                            <StyledSkillItem image="/assets/html.jpeg" desc="HTML"></StyledSkillItem>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <StyledSkillItem image="/assets/css.jpeg" desc="CSS"></StyledSkillItem>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <StyledSkillItem image="/assets/js.jpeg" desc="JS"></StyledSkillItem>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <StyledSkillItem image="/assets/vue.jpeg" desc="Vue.js"></StyledSkillItem>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <StyledSkillItem image="/assets/react.jpeg" desc="React"></StyledSkillItem>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <StyledSkillItem image="/assets/redux.jpeg" desc="Redux"></StyledSkillItem>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <StyledSkillItem image="/assets/vuex.jpeg" desc="Vuex"></StyledSkillItem>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <StyledSkillItem image="/assets/git.png" desc="Git"></StyledSkillItem>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <StyledSkillItem image="/assets/bootstrap.jpeg" desc="Bootstrap 4/5"></StyledSkillItem>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <StyledSkillItem image="/assets/sass.jpeg" desc="SASS/SCSS"></StyledSkillItem>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <StyledSkillItem image="/assets/node.jpeg" desc="Node JS"></StyledSkillItem>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <StyledSkillItem image="/assets/apostrophe.jpeg" desc="Apostrophe CMS"></StyledSkillItem>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <StyledSkillItem image="/assets/mongo.jpeg" desc="MongoDB"></StyledSkillItem>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <StyledSkillItem image="/assets/docker.jpeg" desc="Docker"></StyledSkillItem>
-                        </Grid>
+                            <motion.div
+                                initial="offscreen"
+                                whileInView="onscreen"
+                                viewport={{ once: true, amount: 0.8 }}
+                            >
+                                <motion.div variants={cardVariants}>
+                                    <StyledSkillItem image={`/assets/${skill.url}`} desc={skill.desc}></StyledSkillItem>
+                                </motion.div>
+                            </motion.div>
+                        </Grid>)
+                        }
                     </Grid>
                 </Container>
             </Box>
-            
+
         </>
     )
 }

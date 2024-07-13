@@ -1,0 +1,58 @@
+[
+    {
+        "url": "html.jpeg",
+        "desc": "HTML"
+    },
+    {
+        "url": "css.jpeg",
+        "desc": "CSS"
+    },
+    {
+        "url": "js.jpeg",
+        "desc": "JS"
+    },
+    {
+        "url": "vue.jpeg",
+        "desc": "Vue"
+    },
+    {
+        "url": "react.jpeg",
+        "desc": "React"
+    },
+    {
+        "url": "redux.jpeg",
+        "desc": "Redux"
+    },
+    {
+        "url": "vuex.jpeg",
+        "desc": "Vuex"
+    },
+    {
+        "url": "git.png",
+        "desc": "Git"
+    },
+    {
+        "url": "bootstrap.jpeg",
+        "desc": "Bootstrap"
+    },
+    {
+        "url": "sass.jpeg",
+        "desc": "SASS/SCSS"
+    },
+    {
+        "url": "node.jpeg",
+        "desc": "Node"
+    },
+    {
+        "url": "apostrophe.jpeg",
+        "desc": "Apostrophe CMS"
+    },
+    {
+        "url": "mongo.jpeg",
+        "desc": "Mongo"
+    },
+    {
+        "url": "docker.jpeg",
+        "desc": "Docker"
+    }
+]

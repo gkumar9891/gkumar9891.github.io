@@ -1,9 +1,21 @@
 import { Typography, Box, Container, Grid, Card } from "@mui/material";
 import ParticleWrapper from "../components/ParticleWrapper";
 import { motion, Variants } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, ReactNode } from "react";
 
-const StyledSkillItem = (props: any) => {
+interface Skill {
+    url: string,
+    desc: string
+}
+
+type skillProps = {
+    image: string,
+    desc: string,
+    children?: ReactNode,
+    url?: string
+}
+
+const StyledSkillItem = (props: skillProps) => {
     return (
         <>
             <Card className="skill-item" sx={{ paddingTop: 2 }}>
@@ -30,13 +42,13 @@ const cardVariants: Variants = {
 };
 
 const Home = () => {
-    const [skills, setSkills]:[any, any] = useState([]);
+    const [skills, setSkills]:[[], Function] = useState([]);
 
     useEffect(() => {
         fetch("../data/skills.json")
-            .then(async (skill:any) => {
-                skill = await skill.json();
-                setSkills(skill)
+            .then(async (skill) => {
+                const res:Skill[] = await skill.json();
+                setSkills(res)
             });
     }, [])
 
@@ -60,9 +72,9 @@ const Home = () => {
             </section>
             <Box component="section" className="section skills" style={{ minHeight: '100dvh' }}>
                 <Container>
-                    <Typography sx={{ fontSize: { xs: 20, md: 40 } }} variant="h2" textAlign='center'>Tech which I used</Typography>
-                    <Grid container justifyContent="center" columns={{ xs: 4, sm: 8, md: 10 }} sx={{ marginTop: 2 }} spacing={2}>
-                        {skills.map((skill:any) =>
+                    <Typography sx={{ fontSize: { xs: 30, md: 40 } }} variant="h2" textAlign='center'>Tech which I used</Typography>
+                    <Grid container justifyContent="center" columns={{ xs: 4, sm: 8, md: 10 }} spacing={2}>
+                        {skills.map((skill:skillProps) =>
                         <Grid item xs={2}>
                             <motion.div
                                 initial="offscreen"

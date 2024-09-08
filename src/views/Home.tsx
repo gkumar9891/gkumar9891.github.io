@@ -21,6 +21,7 @@ const StyledSkillItem = (props: skillProps) => {
             <Card className="skill-item" sx={{ paddingTop: 2 }}>
                 <img className="mb-2" src={props.image} alt={props.desc} loading="lazy" />
                 <Typography sx={{ padding: 1 }}>{props.desc}</Typography>
+                {props.children}
             </Card>
         </>
     )
@@ -54,7 +55,7 @@ const Home = () => {
 
     return (
         <>
-            <section className="section banner">
+            <section className="banner">
                 <ParticleWrapper />
                 <div className="content">
                     <h2>Gaurav Kumar</h2>
@@ -72,7 +73,7 @@ const Home = () => {
             </section>
             <Box component="section" className="section skills" style={{ minHeight: '100dvh' }}>
                 <Container>
-                    <Typography sx={{ fontSize: { xs: 30, md: 40 } }} variant="h2" textAlign='center'>Tech which I used</Typography>
+                    <Typography sx={{ fontSize: { xs: 30, md: '3.75rem' } }} variant="h2" textAlign='center'>Tech which I used</Typography>
                     <Grid container justifyContent="center" columns={{ xs: 4, sm: 8, md: 10 }} spacing={2}>
                         {skills.map((skill:skillProps) =>
                         <Grid item xs={2}>
@@ -89,6 +90,11 @@ const Home = () => {
                         }
                     </Grid>
                 </Container>
+            </Box>
+            <Box component="section" className="section experience">
+            <Container>
+                <Typography variant="h2" textAlign="center">Experience</Typography>
+            </Container>
             </Box>
 
         </>

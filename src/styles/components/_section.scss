@@ -1,10 +1,16 @@
 .section {
-    padding-top: 20px;    
-    padding-bottom: 20px;
+    padding-top: 40px;    
+    padding-bottom: 40px;
     position: relative;
 }
 
 .section.skills {
     background-color: #f5f5f5;
-    padding: 20px 0 120px;
+    padding-bottom: 120px;
+}
+
+@include media-breakpoint-down(md) {
+    .section {
+        padding-top: 20px;
+    }
 }

@@ -9,6 +9,11 @@
     padding-bottom: 120px;
 }
 
+.section.experience .item {
+    position: sticky;
+    top: 0;
+}
+
 @include media-breakpoint-down(md) {
     .section {
         padding-top: 20px;

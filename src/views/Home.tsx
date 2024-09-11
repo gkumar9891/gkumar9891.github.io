@@ -15,6 +15,14 @@ type skillProps = {
     url?: string
 }
 
+type Experience = {
+    timePeriod: string,
+    position: string,
+    companyName: string,
+    description: string,
+    bgColor: string
+}
+
 const StyledSkillItem = (props: skillProps) => {
     return (
         <>
@@ -44,6 +52,36 @@ const cardVariants: Variants = {
 
 const Home = () => {
     const [skills, setSkills]:[[], Function] = useState([]);
+    const experienceData:Experience[] = [
+        {
+            timePeriod: 'July 2024 - Present',
+            position: 'Vue.js Developer',
+            companyName: 'Harjai Computers Pvt Ltd',
+            description: 'Working on as third party payroll for Bajaj Allianz where I work on deployment and feature implementaion for different category of policies. ', 
+            bgColor: '#2a2850'
+        },
+        {
+            timePeriod: 'June 2022 - Apr 2024',
+            position: 'Software Engineer (Vue.js)',
+            companyName: 'Chetu India Pvt Ltd',
+            description: 'I built a CMS for admins to create pages and add content like sliders and widgets. I developed REST APIs using Node.js for a third-party service and integrated them into the CMS. Additionally, I worked on a crypto social app with React/Redux and modified a library for Vue 3 to support GraphQL.', 
+            bgColor: '#4a243c'
+        },
+        {
+            timePeriod: 'July 2020 - Jun 2022',
+            position: 'Frontend Developer',
+            companyName: 'Netling Digital Pvt Ltd',
+            description: 'I developed a web application using Vue.js and Vuex to manage rental spaces for meetings and offices. I also built a React.js app that allows users to compare home appliances based on features. Additionally, I worked in Agile methodology and created web pages using HTML, CSS, SCSS, JavaScript, Bootstrap, and jQuery.', 
+            bgColor: '#13504b'
+        },
+        {
+            timePeriod: 'Sep 2019 - Dec 2019',
+            position: 'Digital Marketing Intern',
+            companyName: 'Acube Digital',
+            description: 'I used WordPress templates to create professional websites, implemented SEO and SMO techniques to improve search rankings, and deployed WordPress sites on HostGator.', 
+            bgColor: '#262937'
+        },
+    ]
 
     useEffect(() => {
         fetch("../data/skills.json")
@@ -91,10 +129,22 @@ const Home = () => {
                     </Grid>
                 </Container>
             </Box>
-            <Box component="section" className="section experience">
-            <Container>
-                <Typography variant="h2" textAlign="center">Experience</Typography>
-            </Container>
+            <Box component="section" className="section experience pb-0">
+                <Container>
+                    <Typography variant="h2" textAlign="center" sx={{ fontSize: { xs: 30, md: '3.75rem' }, marginBottom: { xs: '20px', md: '40px' } }}>Experience</Typography>
+                </Container>
+                {experienceData.map(experience => 
+                    <Box component="div" className="item" sx={{minHeight: '100vh', background: experience.bgColor, display: "flex", alignItems: 'center'}}>
+                        <Container>
+                            <Typography className="time-period" textAlign="right" sx={{ fontSize: {xs: 20, md: 30}, color: '#fff', marginBottom: { xs: '20px', md: '40px'} }}>{experience.timePeriod}</Typography>
+                            <Typography sx={{ fontSize: {xs: 20, md: 30}, color: '#fff', marginBottom: '5px' }} variant="h5" className="position">{experience.position} @</Typography>
+                            <Typography sx={{ fontSize: {xs: 40, md: 60}, color: '#fff', marginBottom: { xs: '20px', md: '40px' } }} variant="h4" className="company-name">{experience.companyName}</Typography>
+                            <Box className="desc-wrap"  sx={{padding: { xs: '0 100px 0', md: '0 200px 0' }}}>
+                                <Typography className="description" sx={{ fontSize: {xs: 20, md: 30}, color: '#fff' }}>{experience.description}</Typography>
+                            </Box>
+                        </Container>
+                    </Box>    
+                )}
             </Box>
 
         </>

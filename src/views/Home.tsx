@@ -136,11 +136,19 @@ const Home = () => {
                 {experienceData.map(experience => 
                     <Box component="div" className="item" sx={{minHeight: '100vh', background: experience.bgColor, display: "flex", alignItems: 'center'}}>
                         <Container>
+<<<<<<< HEAD
                             <Typography className="time-period" textAlign="right" sx={{ fontSize: {xs: 20, md: 30}, color: '#fff', marginBottom: { xs: '20px', md: '40px'} }}>{experience.timePeriod}</Typography>
                             <Typography sx={{ fontSize: {xs: 20, md: 30}, color: '#fff', marginBottom: '5px' }} variant="h5" className="position">{experience.position} @</Typography>
                             <Typography sx={{ fontSize: {xs: 40, md: 60}, color: '#fff', marginBottom: { xs: '20px', md: '40px' } }} variant="h4" className="company-name">{experience.companyName}</Typography>
                             <Box className="desc-wrap"  sx={{padding: { xs: '0 100px 0', md: '0 200px 0' }}}>
                                 <Typography className="description" sx={{ fontSize: 20, color: '#fff' }}>{experience.description}</Typography>
+=======
+                            <Typography className="time-period" textAlign="right" sx={{ fontSize: {xs: 15, md: 30}, color: '#fff', marginBottom: { xs: '20px', md: '40px'} }}>{experience.timePeriod}</Typography>
+                            <Typography sx={{ fontSize: {xs: 15, sm: 20, md: 30}, color: '#fff', marginBottom: '5px' }} variant="h5" className="position">{experience.position} @</Typography>
+                            <Typography sx={{ fontSize: {xs: 25, sm: 30, md: 60}, color: '#fff', marginBottom: { xs: '20px', md: '40px' } }} variant="h4" className="company-name">{experience.companyName}</Typography>
+                            <Box className="desc-wrap"  sx={{padding: { xs: '0 25px 0', md: '0 200px 0' }}}>
+                                <Typography className="description" sx={{ fontSize: {xs: 20, md: 30}, color: '#fff' }}>{experience.description}</Typography>
+>>>>>>> e4b4a2b8070981445f35776983f143eded2a55e2
                             </Box>
                         </Container>
                     </Box>    

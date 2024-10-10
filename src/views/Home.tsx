@@ -139,7 +139,7 @@ const Home = () => {
                             <Typography className="time-period" textAlign="right" sx={{ fontSize: {xs: 20, md: 30}, color: '#fff', marginBottom: { xs: '20px', md: '40px'} }}>{experience.timePeriod}</Typography>
                             <Typography sx={{ fontSize: {xs: 20, md: 30}, color: '#fff', marginBottom: '5px' }} variant="h5" className="position">{experience.position} @</Typography>
                             <Typography sx={{ fontSize: {xs: 40, md: 60}, color: '#fff', marginBottom: { xs: '20px', md: '40px' } }} variant="h4" className="company-name">{experience.companyName}</Typography>
-                            <Box className="desc-wrap"  sx={{padding: { xs: '0 100px 0', md: '0 200px 0' }}}>
+                            <Box className="desc-wrap"  sx={{padding: { md: '0 200px 0' }}}>
                                 <Typography className="description" sx={{ fontSize: 20, color: '#fff' }}>{experience.description}</Typography>
                             </Box>
                         </Container>
